@@ -1,0 +1,5 @@
+feedparser==6.0.11
+groq==0.11.0
+supabase==2.7.4
+python-slugify==8.0.4
+python-frontmatter==1.1.0
