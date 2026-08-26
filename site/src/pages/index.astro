@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+const sorted = allPosts.sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+---
+<BaseLayout title="Mi Web de Nichos" description="Últimos artículos">
+  <h1>Últimos artículos</h1>
+  {sorted.length === 0 && <p>Todavía no hay artículos publicados. Vuelve pronto.</p>}
+  {sorted.map((post) => (
+    <div class="post-item">
+      <h2><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h2>
+      <p class="post-date">{post.data.pubDate}</p>
+      <p>{post.data.description}</p>
+    </div>
+  ))}
+</BaseLayout>
