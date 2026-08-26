@@ -41,7 +41,7 @@ RSS_FEEDS = [
     "https://www.reddit.com/r/gadgets/.rss",
 ]
 MAX_ARTICLES_PER_RUN = 5          # límite para no agotar rate-limit gratuito de Groq
-GROQ_MODEL = "llama-3.3-70b-versatile"  # modelo gratuito de alta calidad en Groq
+GROQ_MODEL = "openai/gpt-oss-120b"  # modelo gratuito activo en Groq (sustituye al retirado)
 CONTENT_DIR = "site/src/content/posts"  # ruta dentro de tu repo Astro
 AFFILIATE_CTA = os.environ.get(
     "AFFILIATE_CTA_HTML",
