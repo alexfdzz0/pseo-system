@@ -6,32 +6,69 @@ const posts = await getCollection('posts');
 posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 ---
 
-<BaseLayout title="Tech & Gadgets — Guía de Compras y Ofertas" description="Analizamos las últimas novedades en tecnología y chollos destacados de Amazon.">
-  <header style="text-align: center; padding: 2rem 0; border-bottom: 2rem;">
-    <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: #0f172a;">⚡ Tech & Gadgets</h1>
-    <p style="color: #64748b; font-size: 1.1rem; margin: 0;">Análisis, guías de compra y las mejores ofertas en tecnología.</p>
+<BaseLayout title="Tech & Gadgets — Guías y Ofertas Recomendadas" description="Análisis objetivos y mejores ofertas en tecnología seleccionadas por expertos.">
+  
+  <!-- Banner Header de Alto Impacto -->
+  <header style="text-align: center; padding: 3rem 1.5rem; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 20px; color: #ffffff; margin-bottom: 2.5rem; box-shadow: 0 12px 30px -5px rgba(15, 23, 42, 0.2); position: relative; overflow: hidden;">
+    
+    <!-- Elemento decorativo de fondo -->
+    <div style="position: absolute; top: -50px; right: -50px; width: 150px; height: 150px; background: rgba(37, 99, 235, 0.25); filter: blur(50px); border-radius: 50%;"></div>
+
+    <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); color: #38bdf8; padding: 0.35rem 0.9rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
+      ⚡ Guía de Compras & Chollos Top
+    </span>
+    
+    <h1 style="font-size: 2.6rem; margin: 0 0 0.6rem 0; font-weight: 800; letter-spacing: -0.03em; color: #ffffff;">
+      Tech & Gadgets
+    </h1>
+    
+    <p style="color: #94a3b8; font-size: 1.05rem; margin: 0 auto; max-width: 520px; font-weight: 500; line-height: 1.5;">
+      Analizamos y seleccionamos la mejor tecnología para que aciertes en tu compra al mejor precio.
+    </p>
   </header>
 
-  <main style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
-    <div style="display: grid; gap: 1.5rem;">
+  <!-- Lista de Artículos -->
+  <main>
+    <div style="display: grid; gap: 1.75rem;">
       {posts.map((post) => (
-        <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
-          <time style="font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">
-            {new Date(post.data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
-          </time>
-          <h2 style="margin: 0.5rem 0; font-size: 1.35rem;">
-            <a href={`/posts/${post.slug}/`} style="color: #1e293b; text-decoration: none; font-weight: 700;">
-              {post.data.title}
+        <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.75rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between;">
+          
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+              <span style="background: #eff6ff; color: #2563eb; border: 1px solid #dbeafe; font-size: 0.73rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.03em;">
+                Análisis Recomendado
+              </span>
+              <time style="font-size: 0.8rem; color: #94a3b8; font-weight: 500;">
+                {new Date(post.data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+            </div>
+            
+            <h2 style="margin: 0.3rem 0 0.75rem 0; font-size: 1.4rem; font-weight: 800; line-height: 1.35;">
+              <a href={`/posts/${post.slug}/`} style="color: #0f172a; text-decoration: none;">
+                {post.data.title}
+              </a>
+            </h2>
+            
+            <p style="color: #475569; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.98rem;">
+              {post.data.description}
+            </p>
+          </div>
+
+          <!-- Pie de tarjeta con llamada a la acción -->
+          <div style="padding-top: 1.25rem; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+            <span style="color: #16a34a; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem;">
+              <span style="display: inline-block; width: 8px; height: 8px; background-color: #22c55e; border-radius: 50%;"></span>
+              Disponible en Amazon
+            </span>
+            
+            <a href={`/posts/${post.slug}/`} style="display: inline-flex; align-items: center; gap: 0.4rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; font-weight: 700; font-size: 0.9rem; padding: 0.65rem 1.3rem; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);">
+              Ver análisis y oferta →
             </a>
-          </h2>
-          <p style="color: #475569; line-height: 1.5; margin-bottom: 1rem;">
-            {post.data.description}
-          </p>
-          <a href={`/posts/${post.slug}/`} style="display: inline-block; color: #2563eb; font-weight: 600; font-size: 0.95rem; text-decoration: none;">
-            Leer análisis completo →
-          </a>
+          </div>
+
         </article>
       ))}
     </div>
   </main>
+
 </BaseLayout>
