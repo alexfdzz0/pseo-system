@@ -28,6 +28,7 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          AFFILIATE_CTA_HTML: ${{ secrets.AFFILIATE_CTA_HTML }}
         run: python pipeline.py
 
       - name: Commit y push de artículos nuevos
