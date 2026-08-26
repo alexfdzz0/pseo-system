@@ -4,45 +4,54 @@ import { getCollection } from 'astro:content';
 
 const posts = await getCollection('posts');
 posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+
+// Colección de imágenes HD de tecnología para variar automáticamente en cada tarjeta
+const techImages = [
+  "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", // Auriculares
+  "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80", // Smartwatch
+  "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80", // Teclado
+  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80", // Smartphone
+  "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80", // Cámara
+  "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"  // Setup/Setup Gaming
+];
 ---
 
 <BaseLayout title="Tech & Gadgets — Guía de Compras y Ofertas Premium" description="Análisis objetivos y mejores ofertas en tecnología seleccionadas por expertos.">
   
-  <!-- Banner Hero Estilo OnePlus/Apple -->
-  <header style="position: relative; border-radius: 24px; overflow: hidden; margin-bottom: 3rem; background: #000000; color: #ffffff; min-height: 320px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2.5rem 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+  <!-- Banner Hero Estilo Marca de Tecnología -->
+  <header style="position: relative; border-radius: 24px; overflow: hidden; margin-bottom: 3rem; background: #000000; color: #ffffff; min-height: 300px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2.5rem 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.12);">
     
-    <!-- Imagen de fondo de alta resolución -->
-    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Tech Background" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; opacity: 0.45;" />
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Tech Banner" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; opacity: 0.4;" />
 
-    <div style="position: relative; z-index: 2; max-width: 600px;">
-      <span style="background: #2563eb; color: #ffffff; padding: 0.35rem 0.9rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; display: inline-block; margin-bottom: 1rem;">
-        EDICIÓN 2026
+    <div style="position: relative; z-index: 2; max-width: 620px;">
+      <span style="background: rgba(37, 99, 235, 0.9); color: #ffffff; padding: 0.35rem 0.9rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; display: inline-block; margin-bottom: 1rem;">
+        GUÍAS Y ANÁLISIS 2026
       </span>
-      <h1 style="font-size: 2.8rem; margin: 0 0 0.8rem 0; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: #ffffff;">
-        El futuro de la tecnología en tus manos.
+      <h1 style="font-size: 2.7rem; margin: 0 0 0.8rem 0; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: #ffffff;">
+        Innovación y ofertas en tecnología.
       </h1>
-      <p style="color: #e2e8f0; font-size: 1.1rem; margin: 0; font-weight: 500;">
-        Análisis rigurosos, comparativas objetivas y las mejores ofertas verificadas.
+      <p style="color: #cbd5e1; font-size: 1.05rem; margin: 0; font-weight: 500;">
+        Evaluamos los últimos lanzamientos de hardware y gadgets para recomendarte solo lo que realmente merece la pena.
       </p>
     </div>
   </header>
 
-  <!-- Parrilla de Artículos Estilo Tienda de Gadgets -->
+  <!-- Parrilla de Artículos -->
   <main>
-    <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
-      🔥 Últimos Análisis y Recomendaciones
+    <h2 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem; color: #0f172a;">
+      🔥 Publicaciones Recientes
     </h2>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;">
-      {posts.map((post) => (
-        <article style="background: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #e5e7eb; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s;">
+      {posts.map((post, index) => (
+        <article style="background: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
           
           <div>
-            <!-- Foto de portada por defecto para la tarjeta -->
+            <!-- Asigna una imagen diferente según el índice del artículo -->
             <div style="height: 180px; width: 100%; background: #f1f5f9; overflow: hidden; position: relative;">
-              <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=600&q=80" alt="Gadget" style="width: 100%; height: 100%; object-fit: cover;" />
+              <img src={techImages[index % techImages.length]} alt={post.data.title} style="width: 100%; height: 100%; object-fit: cover;" />
               <span style="position: absolute; top: 12px; left: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; text-transform: uppercase;">
-                REVIEW
+                ANÁLISIS
               </span>
             </div>
 
@@ -51,7 +60,7 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
                 {new Date(post.data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
               </time>
               
-              <h3 style="margin: 0.5rem 0 0.75rem 0; font-size: 1.25rem; font-weight: 800; line-height: 1.35;">
+              <h3 style="margin: 0.5rem 0 0.75rem 0; font-size: 1.2rem; font-weight: 800; line-height: 1.35;">
                 <a href={`/posts/${post.slug}/`} style="color: #0f172a; text-decoration: none;">
                   {post.data.title}
                 </a>
@@ -65,11 +74,11 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
 
           <div style="padding: 1rem 1.5rem 1.5rem 1.5rem; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
             <span style="color: #16a34a; font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; gap: 0.3rem;">
-              ✓ Amazon Prime
+              ✓ Amazon Verificado
             </span>
             
             <a href={`/posts/${post.slug}/`} style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.1rem; border-radius: 10px; text-decoration: none;">
-              Ver oferta →
+              Ver análisis →
             </a>
           </div>
 
