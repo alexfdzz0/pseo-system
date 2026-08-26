@@ -30,4 +30,4 @@ El 3 de agosto es una fecha clave para los cazadores de chollos tecnológicos en
 
 
 ---
-<p>👉 Mira las mejores ofertas relacionadas <a href="https://tu-link-afiliado.com" rel="sponsored nofollow">aquí</a>.</p>
+<p>👉 Mira las mejores ofertas relacionadas <a href="https://www.amazon.es/s?k=gadgets+sostenibles&tag=miwebnichos-21" rel="sponsored nofollow">aquí</a>.</p>
