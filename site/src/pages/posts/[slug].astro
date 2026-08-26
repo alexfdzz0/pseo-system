@@ -4,20 +4,55 @@ import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
+  return posts.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
   }));
 }
 
-const { post } = Astro.props;
-const { Content } = await post.render();
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Validación para desviar enlaces ficticios hacia Amazon.es con tu Tag de Afiliado
+const rawLink = entry.data.affiliateUrl || '';
+const isInvalid = !rawLink || rawLink.includes('tu-link-afiliado.com');
+
+const finalAffiliateUrl = isInvalid
+  ? `https://www.amazon.es/s?k=${encodeURIComponent(entry.data.title)}&tag=miwebnichos-21`
+  : rawLink;
 ---
-<BaseLayout title={post.data.title} description={post.data.description}>
-  <article>
-    <h1>{post.data.title}</h1>
-    <p class="post-date">{post.data.pubDate}</p>
-    <Content />
+
+<BaseLayout title={entry.data.title} description={entry.data.description}>
+  <article style="max-width: 750px; margin: 0 auto; background: #ffffff; padding: 2rem; border-radius: 20px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+    
+    <header style="border-bottom: 1px solid #f1f5f9; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+      <time style="font-size: 0.85rem; color: #94a3b8; font-weight: 600;">
+        {new Date(entry.data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </time>
+      <h1 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; margin: 0.5rem 0 1rem 0; line-height: 1.25;">
+        {entry.data.title}
+      </h1>
+      <p style="font-size: 1.1rem; color: #475569; margin: 0;">
+        {entry.data.description}
+      </p>
+    </header>
+
+    <!-- CAJA DESTACADA DE COMPRA -->
+    <div style="background: #fffbe0; border: 2px solid #fde047; border-radius: 16px; padding: 1.5rem; margin-bottom: 2.5rem; text-align: center;">
+      <span style="color: #854d0e; font-weight: 700; font-size: 0.85rem; text-transform: uppercase;">
+        ⚡ Mejor Precio Comprobado
+      </span>
+      <h3 style="margin: 0.5rem 0 1rem 0; color: #713f12; font-size: 1.2rem;">
+        Comprueba la disponibilidad y descuento en Amazon
+      </h3>
+      <a href={finalAffiliateUrl} target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #ff9900; color: #000000; font-weight: 800; font-size: 1.05rem; padding: 0.85rem 2rem; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);">
+        🛒 Ver Oferta en Amazon.es →
+      </a>
+    </div>
+
+    <!-- Contenido del Artículo -->
+    <div style="color: #334155; line-height: 1.8; font-size: 1.05rem;">
+      <Content />
+    </div>
+
   </article>
-  <p><a href="/">&larr; Volver al inicio</a></p>
 </BaseLayout>
