@@ -38,4 +38,4 @@ Adoptar gadgets sostenibles no solo ayuda al planeta, sino que también fomenta 
 
 
 ---
-<p>👉 Mira las mejores ofertas relacionadas <a href="https://tu-link-afiliado.com" rel="sponsored nofollow">aquí</a>.</p>
+<p>👉 Mira las mejores ofertas relacionadas <a href="https://www.amazon.es/s?k=gadgets+sostenibles&tag=miwebnichos-21" rel="sponsored nofollow">aquí</a>.</p>
