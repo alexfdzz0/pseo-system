@@ -2,19 +2,36 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const allPosts = await getCollection('posts');
-const sorted = allPosts.sort(
-  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
-);
+const posts = await getCollection('posts');
+posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 ---
-<BaseLayout title="Mi Web de Nichos" description="Últimos artículos">
-  <h1>Últimos artículos</h1>
-  {sorted.length === 0 && <p>Todavía no hay artículos publicados. Vuelve pronto.</p>}
-  {sorted.map((post) => (
-    <div class="post-item">
-      <h2><a href={`/posts/${post.slug}/`}>{post.data.title}</a></h2>
-      <p class="post-date">{post.data.pubDate}</p>
-      <p>{post.data.description}</p>
+
+<BaseLayout title="Tech & Gadgets — Guía de Compras y Ofertas" description="Analizamos las últimas novedades en tecnología y chollos destacados de Amazon.">
+  <header style="text-align: center; padding: 2rem 0; border-bottom: 2rem;">
+    <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: #0f172a;">⚡ Tech & Gadgets</h1>
+    <p style="color: #64748b; font-size: 1.1rem; margin: 0;">Análisis, guías de compra y las mejores ofertas en tecnología.</p>
+  </header>
+
+  <main style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+    <div style="display: grid; gap: 1.5rem;">
+      {posts.map((post) => (
+        <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+          <time style="font-size: 0.85rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">
+            {new Date(post.data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+          <h2 style="margin: 0.5rem 0; font-size: 1.35rem;">
+            <a href={`/posts/${post.slug}/`} style="color: #1e293b; text-decoration: none; font-weight: 700;">
+              {post.data.title}
+            </a>
+          </h2>
+          <p style="color: #475569; line-height: 1.5; margin-bottom: 1rem;">
+            {post.data.description}
+          </p>
+          <a href={`/posts/${post.slug}/`} style="display: inline-block; color: #2563eb; font-weight: 600; font-size: 0.95rem; text-decoration: none;">
+            Leer análisis completo →
+          </a>
+        </article>
+      ))}
     </div>
-  ))}
+  </main>
 </BaseLayout>
