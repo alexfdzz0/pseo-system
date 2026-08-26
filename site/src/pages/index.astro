@@ -4,23 +4,12 @@ import { getCollection } from 'astro:content';
 
 const posts = await getCollection('posts');
 posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
-
-// Colección de imágenes HD de tecnología para variar automáticamente en cada tarjeta
-const techImages = [
-  "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80", // Auriculares
-  "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80", // Smartwatch
-  "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80", // Teclado
-  "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80", // Smartphone
-  "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80", // Cámara
-  "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80"  // Setup/Setup Gaming
-];
 ---
 
 <BaseLayout title="Tech & Gadgets — Guía de Compras y Ofertas Premium" description="Análisis objetivos y mejores ofertas en tecnología seleccionadas por expertos.">
   
-  <!-- Banner Hero Estilo Marca de Tecnología -->
+  <!-- Banner Hero -->
   <header style="position: relative; border-radius: 24px; overflow: hidden; margin-bottom: 3rem; background: #000000; color: #ffffff; min-height: 300px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2.5rem 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.12);">
-    
     <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Tech Banner" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; opacity: 0.4;" />
 
     <div style="position: relative; z-index: 2; max-width: 620px;">
@@ -43,47 +32,51 @@ const techImages = [
     </h2>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;">
-      {posts.map((post, index) => (
-        <article style="background: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
-          
-          <div>
-            <!-- Asigna una imagen diferente según el índice del artículo -->
-            <div style="height: 180px; width: 100%; background: #f1f5f9; overflow: hidden; position: relative;">
-              <img src={techImages[index % techImages.length]} alt={post.data.title} style="width: 100%; height: 100%; object-fit: cover;" />
-              <span style="position: absolute; top: 12px; left: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; text-transform: uppercase;">
-                ANÁLISIS
-              </span>
-            </div>
+      {posts.map((post) => {
+        // Genera una imagen única y dinámica para cada post basada en su título o ID único
+        const dynamicImage = `https://picsum.photos/seed/${encodeURIComponent(post.slug)}/600/400`;
 
-            <div style="padding: 1.5rem;">
-              <time style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">
-                {new Date(post.data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
-              </time>
-              
-              <h3 style="margin: 0.5rem 0 0.75rem 0; font-size: 1.2rem; font-weight: 800; line-height: 1.35;">
-                <a href={`/posts/${post.slug}/`} style="color: #0f172a; text-decoration: none;">
-                  {post.data.title}
-                </a>
-              </h3>
-              
-              <p style="color: #64748b; line-height: 1.5; margin: 0; font-size: 0.92rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
-                {post.data.description}
-              </p>
-            </div>
-          </div>
-
-          <div style="padding: 1rem 1.5rem 1.5rem 1.5rem; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-            <span style="color: #16a34a; font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; gap: 0.3rem;">
-              ✓ Amazon Verificado
-            </span>
+        return (
+          <article style="background: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between;">
             
-            <a href={`/posts/${post.slug}/`} style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.1rem; border-radius: 10px; text-decoration: none;">
-              Ver análisis →
-            </a>
-          </div>
+            <div>
+              <div style="height: 180px; width: 100%; background: #f1f5f9; overflow: hidden; position: relative;">
+                <img src={dynamicImage} alt={post.data.title} style="width: 100%; height: 100%; object-fit: cover;" />
+                <span style="position: absolute; top: 12px; left: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; text-transform: uppercase;">
+                  ANÁLISIS
+                </span>
+              </div>
 
-        </article>
-      ))}
+              <div style="padding: 1.5rem;">
+                <time style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">
+                  {new Date(post.data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+                
+                <h3 style="margin: 0.5rem 0 0.75rem 0; font-size: 1.2rem; font-weight: 800; line-height: 1.35;">
+                  <a href={`/posts/${post.slug}/`} style="color: #0f172a; text-decoration: none;">
+                    {post.data.title}
+                  </a>
+                </h3>
+                
+                <p style="color: #64748b; line-height: 1.5; margin: 0; font-size: 0.92rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                  {post.data.description}
+                </p>
+              </div>
+            </div>
+
+            <div style="padding: 1rem 1.5rem 1.5rem 1.5rem; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+              <span style="color: #16a34a; font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; gap: 0.3rem;">
+                ✓ Amazon Verificado
+              </span>
+              
+              <a href={`/posts/${post.slug}/`} style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.1rem; border-radius: 10px; text-decoration: none;">
+                Ver análisis →
+              </a>
+            </div>
+
+          </article>
+        );
+      })}
     </div>
   </main>
 
