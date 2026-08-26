@@ -45,7 +45,13 @@ GROQ_MODEL = "openai/gpt-oss-120b"  # modelo gratuito activo en Groq (sustituye 
 CONTENT_DIR = "site/src/content/posts"  # ruta dentro de tu repo Astro
 AFFILIATE_CTA = os.environ.get(
     "AFFILIATE_CTA_HTML",
-    '<p>👉 Mira las mejores ofertas relacionadas <a href="https://tu-link-afiliado.com" rel="sponsored nofollow">aquí</a>.</p>'
+    '''<div style="background-color: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin: 25px 0; text-align: center;">
+        <h3 style="margin-top: 0; color: #0f172a;">⚡ Oferta Destacada en Amazon</h3>
+        <p style="color: #475569; margin-bottom: 15px;">Hemos seleccionado los productos con mejores valoraciones relacionados con esta noticia.</p>
+        <a href="https://www.amazon.es/s?k=gadgets+tecnologia&tag=miwebnichos-21" target="_blank" rel="nofollow sponsored" style="background-color: #ff9900; color: #111111; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-decoration: none; display: inline-block;">
+            Ver Mejores Precios en Amazon ➔
+        </a>
+    </div>'''
 )
 
 # --------------------------------------------------------------------------
