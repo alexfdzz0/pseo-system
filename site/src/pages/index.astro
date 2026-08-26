@@ -6,70 +6,70 @@ const posts = await getCollection('posts');
 posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 ---
 
-<BaseLayout title="Tech & Gadgets — Guías y Ofertas Recomendadas" description="Análisis objetivos y mejores ofertas en tecnología seleccionadas por expertos.">
+<BaseLayout title="Tech & Gadgets — Guía de Compras y Ofertas Premium" description="Análisis objetivos y mejores ofertas en tecnología seleccionadas por expertos.">
   
-  <!-- Banner Header con gráfico tecnológico incorporado -->
-  <header style="text-align: center; padding: 3.5rem 1.5rem; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 20px; color: #ffffff; margin-bottom: 2.5rem; box-shadow: 0 12px 30px -5px rgba(15, 23, 42, 0.2); position: relative; overflow: hidden;">
+  <!-- Banner Hero Estilo OnePlus/Apple -->
+  <header style="position: relative; border-radius: 24px; overflow: hidden; margin-bottom: 3rem; background: #000000; color: #ffffff; min-height: 320px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 2.5rem 1.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
     
-    <!-- Gráfico SVG decorativo de fondo tipo matriz/tecnología -->
-    <svg style="position: absolute; right: -20px; bottom: -20px; opacity: 0.12; width: 220px; height: 220px; pointer-events: none;" viewBox="0 0 100 100" fill="none" stroke="white" stroke-width="1.5">
-      <path d="M10 10 H90 V90 H10 Z" />
-      <path d="M30 30 H70 V70 H30 Z" />
-      <circle cx="50" cy="50" r="10" />
-      <line x1="10" y1="10" x2="30" y2="30" />
-      <line x1="90" y1="10" x2="70" y2="30" />
-      <line x1="90" y1="90" x2="70" y2="70" />
-      <line x1="10" y1="90" x2="30" y2="70" />
-    </svg>
+    <!-- Imagen de fondo de alta resolución -->
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Tech Background" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit: cover; opacity: 0.45;" />
 
-    <span style="display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); backdrop-filter: blur(8px); color: #38bdf8; padding: 0.35rem 0.9rem; border-radius: 9999px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">
-      ⚡ Guía de Compras & Chollos Top
-    </span>
-    
-    <h1 style="font-size: 2.6rem; margin: 0 0 0.6rem 0; font-weight: 800; letter-spacing: -0.03em; color: #ffffff;">
-      Tech & Gadgets
-    </h1>
-    
-    <p style="color: #94a3b8; font-size: 1.05rem; margin: 0 auto; max-width: 520px; font-weight: 500; line-height: 1.5;">
-      Analizamos y seleccionamos la mejor tecnología para que aciertes en tu compra al mejor precio.
-    </p>
+    <div style="position: relative; z-index: 2; max-width: 600px;">
+      <span style="background: #2563eb; color: #ffffff; padding: 0.35rem 0.9rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; display: inline-block; margin-bottom: 1rem;">
+        EDICIÓN 2026
+      </span>
+      <h1 style="font-size: 2.8rem; margin: 0 0 0.8rem 0; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: #ffffff;">
+        El futuro de la tecnología en tus manos.
+      </h1>
+      <p style="color: #e2e8f0; font-size: 1.1rem; margin: 0; font-weight: 500;">
+        Análisis rigurosos, comparativas objetivas y las mejores ofertas verificadas.
+      </p>
+    </div>
   </header>
 
-  <!-- Lista de Artículos -->
+  <!-- Parrilla de Artículos Estilo Tienda de Gadgets -->
   <main>
-    <div style="display: grid; gap: 1.75rem;">
+    <h2 style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; color: #0f172a; display: flex; align-items: center; gap: 0.5rem;">
+      🔥 Últimos Análisis y Recomendaciones
+    </h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem;">
       {posts.map((post) => (
-        <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 1.75rem; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); display: flex; flex-direction: column; justify-content: space-between;">
+        <article style="background: #ffffff; border-radius: 20px; overflow: hidden; border: 1px solid #e5e7eb; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s;">
           
           <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
-              <span style="background: #eff6ff; color: #2563eb; border: 1px solid #dbeafe; font-size: 0.73rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.03em;">
-                Análisis Recomendado
+            <!-- Foto de portada por defecto para la tarjeta -->
+            <div style="height: 180px; width: 100%; background: #f1f5f9; overflow: hidden; position: relative;">
+              <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=600&q=80" alt="Gadget" style="width: 100%; height: 100%; object-fit: cover;" />
+              <span style="position: absolute; top: 12px; left: 12px; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(8px); color: #ffffff; font-size: 0.7rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 6px; text-transform: uppercase;">
+                REVIEW
               </span>
-              <time style="font-size: 0.8rem; color: #94a3b8; font-weight: 500;">
+            </div>
+
+            <div style="padding: 1.5rem;">
+              <time style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">
                 {new Date(post.data.pubDate).toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' })}
               </time>
+              
+              <h3 style="margin: 0.5rem 0 0.75rem 0; font-size: 1.25rem; font-weight: 800; line-height: 1.35;">
+                <a href={`/posts/${post.slug}/`} style="color: #0f172a; text-decoration: none;">
+                  {post.data.title}
+                </a>
+              </h3>
+              
+              <p style="color: #64748b; line-height: 1.5; margin: 0; font-size: 0.92rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">
+                {post.data.description}
+              </p>
             </div>
-            
-            <h2 style="margin: 0.3rem 0 0.75rem 0; font-size: 1.4rem; font-weight: 800; line-height: 1.35;">
-              <a href={`/posts/${post.slug}/`} style="color: #0f172a; text-decoration: none;">
-                {post.data.title}
-              </a>
-            </h2>
-            
-            <p style="color: #475569; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.98rem;">
-              {post.data.description}
-            </p>
           </div>
 
-          <div style="padding-top: 1.25rem; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
-            <span style="color: #16a34a; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 0.35rem;">
-              <span style="display: inline-block; width: 8px; height: 8px; background-color: #22c55e; border-radius: 50%;"></span>
-              Disponible en Amazon
+          <div style="padding: 1rem 1.5rem 1.5rem 1.5rem; border-top: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #16a34a; font-weight: 700; font-size: 0.82rem; display: flex; align-items: center; gap: 0.3rem;">
+              ✓ Amazon Prime
             </span>
             
-            <a href={`/posts/${post.slug}/`} style="display: inline-flex; align-items: center; gap: 0.4rem; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); color: #ffffff; font-weight: 700; font-size: 0.9rem; padding: 0.65rem 1.3rem; border-radius: 10px; text-decoration: none; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);">
-              Ver análisis y oferta →
+            <a href={`/posts/${post.slug}/`} style="background: #0f172a; color: #ffffff; font-weight: 700; font-size: 0.85rem; padding: 0.6rem 1.1rem; border-radius: 10px; text-decoration: none;">
+              Ver oferta →
             </a>
           </div>
 
