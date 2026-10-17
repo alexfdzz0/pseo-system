@@ -1,52 +1,37 @@
 ---
-description: Apple lanza HomeView, un hub de hogar inteligente que integra dispositivos
-  Apple y terceros, ofreciendo control por voz, automatizaciones y una pantalla táctil
-  intuitiva.
-pubDate: '2026-10-13'
-sourceRef: https://www.reddit.com/r/gadgets/comments/1x54m6w/apple_officially_announces_its_smart_home_hub_the/
+description: Apple lanza HomeView, su primer hub de casa inteligente, integrando Siri,
+  HomeKit y control por voz para simplificar la automatización del hogar.
+pubDate: '2026-10-17'
+sourceRef: https://www.reddit.com/r/gadgets/comments/1x85ezg/apple_officially_announces_its_smart_home_hub_the/
 tags:
 - Apple
 - HomeView
 - Smart Home
+- Domótica
 - Tecnología
-- Gadgets
 title: Apple presenta HomeView, su nuevo hub de hogar inteligente
 ---
 
-## ¿Qué es HomeView?
+## Diseño y hardware
+Apple ha revelado su primer dispositivo dedicado a la domótica: el **HomeView**. Con una carcasa de aluminio reciclado y una pantalla táctil de 7 pulgadas, el hub combina la estética minimalista característica de la marca con funcionalidades pensadas para la vida cotidiana. El dispositivo se coloca en cualquier habitación y actúa como punto de convergencia para luces, termostatos, cerraduras y cámaras compatibles con HomeKit.
 
-HomeView es el primer hub de casa conectada que Apple ha desarrollado desde el lanzamiento del HomePod. Se trata de un dispositivo de sobremesa con pantalla táctil de 10,1 pulgadas que combina la potencia del chip M2 con el ecosistema de HomeKit. Su objetivo es centralizar el control de luces, termostatos, cámaras, cerraduras y cualquier otro accesorio compatible, ofreciendo una interfaz visual y comandos de voz a través de Siri.
+## Funciones clave
+- **Control por voz con Siri**: Los usuarios pueden encender o apagar dispositivos, ajustar la temperatura o reproducir música simplemente diciendo *“Oye Siri, activa la escena de cine”*.
+- **Escenas y automatizaciones**: HomeView permite crear rutinas complejas que se disparan por hora, ubicación geográfica o eventos como la detección de movimiento.
+- **Pantalla interactiva**: La pantalla muestra un panel de control visual con iconos de los dispositivos conectados, notificaciones de seguridad y un feed de la cámara del hogar.
+- **Integración con Apple TV y iPhone**: El hub se sincroniza automáticamente con los dispositivos Apple existentes, ofreciendo una experiencia unificada sin necesidad de aplicaciones de terceros.
 
-## Características principales
+## Compatibilidad con HomeKit y dispositivos de terceros
+Aunque HomeView está optimizado para el ecosistema de Apple, su compatibilidad no se limita a productos de la marca. Gracias a HomeKit, el hub reconoce cientos de accesorios de fabricantes como Philips Hue, Ecobee, August y muchos más. Además, Apple ha anunciado que el dispositivo soportará el nuevo estándar **Matter**, lo que facilitará la incorporación de futuros dispositivos sin depender de protocolos propietarios.
 
-- **Pantalla Retina de alta resolución**: permite visualizar cámaras de seguridad en tiempo real, ver el estado de los dispositivos y crear paneles personalizados.
-- **Chip M2 y Neural Engine**: garantiza respuestas rápidas a los comandos de Siri y ejecuta automatizaciones locales sin depender de la nube.
-- **Control por voz y gestos**: además de Siri, HomeView reconoce gestos simples sobre la pantalla para ajustar luces o reproducir música.
-- **Privacidad de extremo a extremo**: todos los datos de los usuarios se encriptan en el dispositivo, siguiendo la política de privacidad que caracteriza a Apple.
-- **Integración con Apple TV y iPhone**: la experiencia se extiende a otros dispositivos Apple, permitiendo transferir la vista de la cámara o la lista de reproducción con un solo toque.
-
-## Compatibilidad con el ecosistema Apple
-
-HomeView se conecta de forma nativa con HomeKit, lo que significa que cualquier accesorio certificado funcionará sin necesidad de aplicaciones de terceros. Además, se sincroniza con iCloud, de modo que los usuarios pueden acceder a sus escenas y automatizaciones desde cualquier iPhone, iPad o Mac. La integración con el Apple Watch permite activar rutinas con la muñeca, mientras que la compatibilidad con AirPlay 2 facilita la transmisión de audio y vídeo a altavoces y televisores compatibles.
-
-## Ventajas frente a la competencia
-
-| Característica | HomeView (Apple) | Competidor A (Google Nest Hub) | Competidor B (Amazon Echo Show) |
-|---|---|---|---|
-| Chip | M2 + Neural Engine | TensorFlow Lite | AZ1 Neural Edge |
-| Privacidad | Encriptación local + iCloud | Dependencia de Google Cloud | Recolección de datos para publicidad |
-| Compatibilidad | HomeKit + AirPlay 2 | Google Assistant + Matter | Alexa + Matter |
-| Pantalla | Retina 10,1" | LCD 7" | LCD 8" |
-
-Apple destaca por su enfoque en la privacidad y la integración fluida con sus propios productos, algo que muchos usuarios consideran un factor decisivo frente a Google o Amazon.
+## Privacidad y seguridad
+Como es habitual en los productos Apple, la privacidad es un pilar fundamental. HomeView procesa la mayoría de los datos localmente, evitando el envío innecesario a la nube. Cuando se utilizan servicios basados en la nube, la información se cifra de extremo a extremo y se almacena bajo la estricta política de datos de Apple. Asimismo, el hub incorpora autenticación de dos factores y reconocimiento facial a través de la cámara integrada para desbloquear funciones sensibles.
 
 ## Precio y disponibilidad
-
-Apple ha anunciado que HomeView llegará a las tiendas oficiales y a la tienda online a partir del 15 de noviembre, con un precio de partida de **US$399**. Se ofrecerán versiones de 64 GB y 256 GB de almacenamiento interno, y los usuarios podrán adquirir paquetes que incluyan accesorios como sensores de movimiento y cámaras compatibles con HomeKit.
+Apple ha fijado el precio de HomeView en **$299** en los Estados Unidos, con versiones de 128 GB y 256 GB de almacenamiento interno para guardar configuraciones y grabaciones de cámara. La disponibilidad será global a partir del **15 de noviembre**, tanto en la Apple Store online como en tiendas físicas seleccionadas. Los usuarios de Apple One podrán obtener un mes de prueba gratuito del servicio de suscripción *Home+* que incluye almacenamiento en iCloud para videos de seguridad y funciones avanzadas de automatización.
 
 ## Conclusión
-
-Con HomeView, Apple refuerza su posición en el mercado de hogares conectados, ofreciendo un dispositivo que combina potencia de procesamiento, una pantalla de alta calidad y, sobre todo, una fuerte política de privacidad. La integración total con el ecosistema Apple lo convierte en una opción atractiva para los usuarios que ya poseen iPhone, iPad o Mac y buscan una solución de control centralizada y segura. Si bien el precio es superior al de algunos competidores, la propuesta de valor centrada en la experiencia de usuario y la seguridad puede justificar la inversión para muchos hogares.
+El lanzamiento de HomeView marca un paso importante para Apple en el mercado de la domótica, un sector dominado hasta ahora por Google Nest y Amazon Echo. Al combinar un diseño premium, una interfaz intuitiva y una fuerte apuesta por la privacidad, el hub busca atraer a los usuarios que ya confían en el ecosistema Apple y a aquellos que valoran una solución de hogar inteligente segura y fácil de usar. Si bien el precio puede resultar elevado para algunos, la integración profunda con iOS, macOS y tvOS podría justificar la inversión para quienes buscan una experiencia de hogar conectado sin complicaciones.
 
 
 ---
